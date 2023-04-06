@@ -112,7 +112,7 @@ This article involves network security experiments. Reading this article indicat
 
 ```shell
 sudo dpkg --add-architecture i386
-sudo apt-get install wine mono-complete winetricks wine32
+sudo apt-get install wine mono-complete winetricks wine32 winbind
 ```
 
 #### 安装.Net
