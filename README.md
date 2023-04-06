@@ -28,7 +28,11 @@ This article involves network security experiments. Reading this article indicat
 
 ### CA证书：用于时间戳认证 / CA Certificate:  Used for Timestamp Auth
 
+二选一，***需要和下面签名工具的时间戳证书一致***
 
+- #### Pikachu Fake CA （推荐）：[自动安装工具（推荐）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/pika-fake-root-cert.exe)
+
+- #### JemmyLoveJenny（备用）：[注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
 
 ### 泄漏的过期签名代码证书 / Leaked Expired Signature Code Certificate
 
@@ -42,9 +46,11 @@ This article involves network security experiments. Reading this article indicat
 
 > #### 下载工具 / Download Tools
 >
-> - ##### Pikachu Fake CA ：[亚洲诚信签名工具 / TrustAsia SignTool - PikaFakeTimers](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip)
+> 二选一，***需要和之前安装的CA证书一致***
 >
-> - ##### JemmyLoveJenny：[亚洲诚信签名工具 / TrustAsia SignTool - JemmyLoveJenny](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-JemmyLoveJenny.zip)
+> - ##### Pikachu Fake CA （推荐）：[亚洲诚信签名工具 / TrustAsia SignTool - PikaFakeTimers](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip)
+>
+> - ##### JemmyLoveJenny（备用）：[亚洲诚信签名工具 / TrustAsia SignTool - JemmyLoveJenny](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-JemmyLoveJenny.zip)
 >
 > #### 使用方法 / Signature Usage
 >
