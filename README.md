@@ -1,5 +1,5 @@
 # 自建时间戳服务器实现伪签名驱动证书
-## Implementing pseudo signature driven certificates with self built timestamp servers
+## Implementing Pseudo Signature with Self-Sign Timestamp Servers
 ## 免责声明 / Disclaimers
 <details>
 <summary>Disclaimers - English</summary>
