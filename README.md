@@ -2,7 +2,7 @@
 ## Implementing Pseudo Signature with Self-Sign Timestamp Servers
 ## 免责声明 / Disclaimers
 <details>
-<summary>Disclaimers - English</summary>
+<summary>[Disclaimers - English]</summary>
 This article involves network security experiments. Reading this article indicates that you have read, fully understand, and promise to comply with all the following terms and conditions:
 > 1. You promise that the technology involved in this article will only be used for experimentation and security technology testing, and shall not be used for any criminal activities, fraud or cracking, nor for production environments that require confidentiality or importance.
 > 2. You comply with the Cybersecurity Law of the People's Republic of China and are not allowed to use any technology on this website for illegal or criminal activities.
@@ -12,6 +12,7 @@ This article involves network security experiments. Reading this article indicat
 </details>
 
 **本文涉及网络安全实验，阅读本文表示您已经阅读、完全理解并承诺遵守下列条款的全部内容**：
+
 > 1、您承诺本文涉及的技术只被用于实验和安全技术测试，不得用于任何违反犯罪活动，不得用于欺诈或破解，不用于需要保密或者重要的生产环境。
 > 2、您遵守《中华人民共和国网络安全法》，不得使用本网站任何技术进行违法犯罪活动。
 > 3、您遵守《刑法》第286条第1款规定，不得使用本网站的任何技术破坏计算机信息系统。
@@ -21,11 +22,88 @@ This article involves network security experiments. Reading this article indicat
 
 ## 实现原理 / Principle
 
+## 快速使用 / QuickUse
+
+### CA证书：用于时间戳认证 / CA Certificate:  Used for Timestamp Auth
+
+
+
+### 泄漏的过期签名代码证书 / Leaked Expired Signature Code Certificate
+
+> ***需要2015-07-29及以前的EV代码签名证书***，**我不提供任何过期签名证书**
+>
+> ***EV code signing certificates from July 29, 2015 and earlier are required***,
+>
+> **I do NOT provide any expired signing certificates**
+
+### 亚洲诚信数字签名工具包 / AsiaTrust Digital Signature Toolkit Modify
+
+> #### 下载工具 / Download Tools
+>
+> 
+>
+> #### 使用方法 / Signature Usage
+>
+> 
+
+### 其他工具：微软SignTool / Other tools: Microsoft SignTool CMD Usage
+> #### 签名方法 / Signature Method
+>
+> ```shell
+> signtool timestamp /t "http://<服务器地址>/{SHA1|SHA256}/YYYY-MM-DDTHH:mm:ss" <待签名程序>
+> ```
+>
+> #### 签名示例 / Signature Example
+>
+> ```shell
+> signtool timestamp /t "http://time.pika.net.cn/fake/RSA/SHA1/2011-01-01T00:00:00" test.exe
+> signtool timestamp /tp 1 /tr "http://time.pika.net.cn/fake/RSA/SHA256/2011-01-01T00:00:00" test.exe
+> ```
+
 ## 搭建服务 / TS Server
+
+### Windows部署服务（推荐）
+
+### Ubuntu部署服务（不推荐）
+
+#### 安装Wine
+
+```shell
+sudo dpkg --add-architecture i386
+sudo apt-get install wine mono-complete winetricks wine32
+```
+
+#### 安装.Net
+
+- ##### 自动安装
+
+  ```shell
+  sudo winetricks dotnet45
+  ```
+
+- #### 手动安装
+
+  1. 下载文件 [wine-mono-7.4.0-x86.msi](Download/wine-mono-7.4.0-x86.msi) 
+
+  2. ```shell
+     wine uninstaller
+     wine64 uninstaller
+     ```
+
+     安装上一步下载的MSI文件(wine-mono-7.4.0-x86.msi)
+
+     ![](Pictures/20230406171727.jpg)
+
+     
+
+- 
 
 ## 签名工具 / Sign Tool
 
+
+
 ## 参考资料 / Reference
+
 > [1] 时间戳签名库以及本地Demo服务器，可以倒填时间制造有效签名，JemmyloveJenny，吾爱破解，https://www.52pojie.cn/thread-908684-1-1.html
 >
 > [2] 亚洲诚信数字签名工具修改版 自定义时间戳 驱动签名，JemmyloveJenny，吾爱破解，https://www.52pojie.cn/thread-1027420-1-1.html
