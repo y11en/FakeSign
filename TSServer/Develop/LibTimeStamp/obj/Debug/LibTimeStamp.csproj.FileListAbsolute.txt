@@ -1,0 +1,9 @@
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\bin\Debug\LibTimeStamp.dll
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\bin\Debug\LibTimeStamp.pdb
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\bin\Debug\BouncyCastle.Crypto.dll
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\bin\Debug\BouncyCastle.Crypto.xml
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\obj\Debug\LibTimeStamp.csproj.AssemblyReference.cache
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\obj\Debug\LibTimeStamp.csproj.CoreCompileInputs.cache
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\obj\Debug\LibTimeStamp.csproj.CopyComplete
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\obj\Debug\LibTimeStamp.dll
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\LibTimeStamp\obj\Debug\LibTimeStamp.pdb

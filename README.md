@@ -10,7 +10,6 @@ This article involves network security experiments. Reading this article indicat
 > 4. You shall comply with Article 32 of the Electronic Signature Law and shall not use any technology of this website to forge, impersonate, or embezzle the electronic signature of others
 > If any of the above terms are violated, we will fully and independently assume any legal and other responsibilities that may arise.
 </details>
-
 **本文涉及网络安全实验，阅读本文表示您已经阅读、完全理解并承诺遵守下列条款的全部内容**：
 
 > 1、您承诺本文涉及的技术只被用于实验和安全技术测试，不得用于任何违反犯罪活动，不得用于欺诈或破解，不用于需要保密或者重要的生产环境。
@@ -68,13 +67,13 @@ This article involves network security experiments. Reading this article indicat
 >
 >    - ###### 建议2015-07-29前
 >
->    ![设置时间](Pictures/20230406174339.jpg)
+>    ![设置时间](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406174339.jpg)
 >
 > 3. ##### 打开工具DSignTool.exe
 >
 >    **会提示时间戳日期**：
 >
->    ![20230406174916](Pictures/20230406174916.jpg)
+>    ![20230406174916](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406174916.jpg)
 >
 > 4. ##### 添加规则
 >
@@ -82,7 +81,7 @@ This article involves network security experiments. Reading this article indicat
 >
 > 5. ##### 签名文件
 >
->    ![20230406175256](Pictures/20230406175256.jpg)
+>    ![20230406175256](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406175256.jpg)
 
 ### 其他工具：微软SignTool / Other tools: Microsoft SignTool CMD Usage
 > #### 签名方法 / Signature Method
@@ -140,7 +139,7 @@ sudo apt-get install wine mono-complete winetricks wine32 winbind
 
      安装上一步下载的MSI文件(wine-mono-7.4.0-x86.msi)
 
-     ![安装MSI文件](Pictures/20230406171727.jpg)
+     ![安装MSI文件](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406171727.jpg)
 
      
 

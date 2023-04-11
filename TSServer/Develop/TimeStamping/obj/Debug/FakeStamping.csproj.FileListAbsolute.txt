@@ -1,0 +1,12 @@
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\bin\Debug\FakeStamping.exe.config
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\bin\Debug\FakeStamping.exe
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\bin\Debug\FakeStamping.pdb
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\bin\Debug\BouncyCastle.Crypto.dll
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\bin\Debug\LibTimeStamp.dll
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\bin\Debug\LibTimeStamp.pdb
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\obj\Debug\FakeStamping.csproj.AssemblyReference.cache
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\obj\Debug\FakeStamping.csproj.SuggestedBindingRedirects.cache
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\obj\Debug\FakeStamping.csproj.CoreCompileInputs.cache
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\obj\Debug\FakeStamping.csproj.CopyComplete
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\obj\Debug\FakeStamping.exe
+D:\MyProject\PrivateItems\CertsSystem\FakeSign\TSServer\Develop\TimeStamping\obj\Debug\FakeStamping.pdb
