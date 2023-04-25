@@ -58,7 +58,7 @@ This article involves network security experiments. Reading this article indicat
 
   - Windows 10 1607 之前，Win8/8.1/7/Vista，或者关闭Secure Boot：
 
-    - **开启测试模式**：
+    - **开启测试模式**： 
 
       ```shell
       bcdedit /enum all
