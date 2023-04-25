@@ -171,7 +171,7 @@ This article involves network security experiments. Reading this article indicat
 >
 > 4. ##### 添加规则
 >
->    ![20230406175056](Pictures/20230406175056.jpg)
+>    ![20230406175056](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406175056.jpg)
 >
 > 5. ##### 签名文件
 >
@@ -197,12 +197,27 @@ This article involves network security experiments. Reading this article indicat
 
 - #### 下载项目
 
+  ```shell
+  git clone https://github.com/PIKACHUIM/FakeSign.git
+  ```
+
 - #### 修改代码
+
+  编辑：`TSServer/Develop/TimeStamping/Program.cs`
+
+  ```c#
+  static readonly string supportFake = @"true";
+  ```
+
+  如果要使用伪造服务器，则此处填写`true`，如果要使用真实时间，应当填写`false`
 
 - #### 编译构建
 
+  输出：`TSServer/Develop/TimeStamping/bin/Debug`
+
 ### Windows部署服务（推荐）
 
+- 双击：`TimeStamping.exe`即可运行
 
 
 ### Ubuntu部署服务（不推荐）
@@ -239,15 +254,42 @@ sudo apt-get install wine mono-complete winetricks wine32 winbind
 
 - #### 运行服务
 
+  ```shell
+  wine TimeStamping.exe
+  ```
+
 ## 签名工具 / Sign Tool
 
 ### VS编译HookSigntool
 
 - #### 下载项目
 
+  ```shell
+  git clone https://github.com/PIKACHUIM/FakeSign.git
+  ```
+
 - #### 修改代码
 
+  编辑：`SignTool/Hooktool/main.cpp`
+
+  ```c#
+  if (!_wcsicmp(lpOriginalTS, L"{CustomTimestampMarker-SHA1}")) {
+          wcscat(buf, L"http://time.pika.net.cn/fake/RSA/");
+          wcscat(buf, lpTimestamp);
+          return buf;
+      }
+      else if (!_wcsicmp(lpOriginalTS, L"{CustomTimestampMarker-SHA256}")) {
+          wcscat(buf, L"http://time.pika.net.cn/fake/RSA/");
+          wcscat(buf, lpTimestamp);
+          return buf;
+      }
+  ```
+
+  将里面的`http://time.pika.net.cn/fake/RSA/`修改为`http://你的地址/路径`
+
 - #### 编译构建
+
+  输出：`SignTool/Hooktool/bin/Debug`
 
 ## 参考资料 / Reference
 
