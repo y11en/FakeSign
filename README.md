@@ -79,6 +79,30 @@ This article involves network security experiments. Reading this article indicat
 
   ![伪造签名原理](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230425160222.jpg)
 
+  - #### 自建伪造时间戳服务器
+
+    - ##### 自建CA证书（CA=TRUE，密钥用法=Certificate Signing, Off-line CRL Signing, CRL Signing，增强型密钥用法=2.5.29.32.0）
+
+    - ##### 自签时间戳签名证书（密钥用途=Digital Signature，增强型密钥用法=时间戳 ，OCSP-URL，CRL-URL）
+
+    - ##### 设置CRL地址（推荐Nginx，把CRL文件放入对应地址），或者设置OCSP服务器（OpenSSL OCSP）
+
+    - ##### 搭建并启动时间戳响应服务器（*RFC*3161以及Authenticode格式 ，需要同时支持SHA1+SHA256）
+
+  - #### 修改签名工具 / 使用SignTool
+
+    - ##### [亚洲诚信签名工具 / TrustAsia SignTool - PikaFakeTimers](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip)
+
+    - ##### [亚洲诚信签名工具 / TrustAsia SignTool - JemmyLoveJenny](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-JemmyLoveJenny.zip)
+
+  - #### 使用泄漏EV证书有效期之内伪造签名
+
+  - #### 在运行驱动的设备信任时间戳CA证书
+
+    - #### [自动安装工具（推荐）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/pika-fake-root-cert.exe)
+
+    - #### [注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
+
 ## 快速使用 / QuickUse
 
 ### CA证书：用于时间戳认证 / CA Certificate:  Used for Timestamp Auth
