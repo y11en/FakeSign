@@ -75,6 +75,20 @@ This article involves network security experiments. Reading this article indicat
 
   ![签名验证原理](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230425155746.jpg)
 
+  - ##### 对二进制文件校验摘要（SHA1/SHA256）
+
+  - ##### 检查摘要是否与记录的符合
+
+  - ##### 使用公钥校验摘要的签名正确
+
+  - ##### 校验签名的证书是否有效，是否为EV证书
+
+  - ##### 逐级向上校验证书信任链是否有效
+
+  - ##### 检查CA是否被信任
+
+  - ##### 检查CA证书是否被微软驱动CA交叉签名
+
 - ### 伪造签名原理
 
   ![伪造签名原理](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230425160222.jpg)
