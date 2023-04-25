@@ -1,6 +1,9 @@
 # 自建时间戳服务器实现伪签名驱动证书
 ## Implementing Pseudo Signature with Self-Sign Timestamp Servers
+![自建时间戳服务器实现伪签名驱动证书](Pictures/2586728848.jpg)
+
 ## 免责声明 / Disclaimers
+
 <details>
 <summary>[Disclaimers - English]</summary>
 This article involves network security experiments. Reading this article indicates that you have read, fully understand, and promise to comply with all the following terms and conditions:
@@ -21,7 +24,60 @@ This article involves network security experiments. Reading this article indicat
 
 ## 实现原理 / Principle
 
+- ### 微软内核模式驱动代码签名要求：
 
+  ![20230425155145](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230425155145.jpg)
+
+  | 适用于：       | Windows Vista、Windows 7;带安全启动的 Windows 8+ | Windows 8、Windows 8.1、Windows 10 版本 1507、1511 以及安全启动 | Windows 10 版本 1607、1703、1709 以及安全启动                | Windows 10 版本 1803 及安全启动                              |
+  | :------------- | :----------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | **架构：**     | 仅 64 位，32 位不需要签名                        | 64 位、32 位                                                 | 64 位、32 位                                                 | 64 位、32 位                                                 |
+  | **需要签名：** | 嵌入文件或目录文件                               | 嵌入文件或目录文件                                           | 嵌入文件或目录文件                                           | 嵌入文件或目录文件                                           |
+  | **签名算法：** | SHA2                                             | SHA2                                                         | SHA2                                                         | SHA2                                                         |
+  | **证书：**     | 代码完整性信任的标准根                           | 代码完整性信任的标准根                                       | Microsoft 根证书颁发机构 2010、Microsoft 根证书颁发机构、Microsoft 根证书颁发机构 | Microsoft 根证书颁发机构 2010、Microsoft 根证书颁发机构、Microsoft 根证书颁发机构 |
+
+  - Windows 10 1607 及更新版本
+    - 如果EV代码签名证书是2015/07/19及**以前**由微软交叉签名的CA颁发的证书：
+      - （必须）签署EV代码签名证书：SHA2（SHA256，SHA1实测仍然可以）
+    - 如果EV代码签名证书是2015/07/19及**以后**（微软交叉签名）CA颁发的证书：
+      - （必须）签署微软WHQL签名：SHA1/SHA2（SHA256，SHA1目前可以）
+      - （可选）签署EV代码签名证书：SHA2（SHA256，微软官方不允许SHA1）
+  - Windows 10 1607 之前的版本（到Vista/Win7/Win8/8.1）
+    - （必须）签署EV代码签名证书：SHA1/SHA2（SHA256，SHA1实测仍然可以）
+    - **对于某些旧版Win7及之前的版本，可能不支持SHA256**
+
+  - Windows XP/2000，更早的系统不要求内核驱动强制签名
+    - （可选）普通代码签名证书：SHA1（不支持SHA256）
+
+- ### 微软禁用内核驱动强制签名方法：
+
+  - Windows 10 1607 之后UEFI引导模式，并且开启Secure Boot选项：
+
+    - 无法开启测试模式，*不能通过修改BCD解决*，**可以使用EFIGuard**
+
+    - 每次可以开机进入<u>高级模式</u>-选择<u>禁用内核驱动强制签名</u>启动
+
+  - Windows 10 1607 之前，Win8/8.1/7/Vista，或者关闭Secure Boot：
+
+    - **开启测试模式**：
+
+      ```shell
+      bcdedit /enum all
+      bcdedit /set {default} testsigning on
+      bcdedit /set nointegritychecks on
+      bcdedit /set testsigning on
+      bcdedit /debug ON
+      bcdedit /bootdebug ON
+      ```
+
+    - 也可以每次可以开机进入<u>高级模式</u>-选择<u>禁用内核驱动强制签名</u>启动
+
+- ### 签名验证原理
+
+  ![签名验证原理](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230425155746.jpg)
+
+- ### 伪造签名原理
+
+  ![伪造签名原理](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230425160222.jpg)
 
 ## 快速使用 / QuickUse
 
@@ -160,3 +216,5 @@ sudo apt-get install wine mono-complete winetricks wine32 winbind
 > [1] 时间戳签名库以及本地Demo服务器，可以倒填时间制造有效签名，JemmyloveJenny，吾爱破解，https://www.52pojie.cn/thread-908684-1-1.html
 >
 > [2] 亚洲诚信数字签名工具修改版 自定义时间戳 驱动签名，JemmyloveJenny，吾爱破解，https://www.52pojie.cn/thread-1027420-1-1.html
+>
+> [3] 关于Windows驱动签名认证的大致总结，[ANY_LNK](https://space.bilibili.com/1337311595)，BiliBili，https://www.bilibili.com/read/cv17812616
