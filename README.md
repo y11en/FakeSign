@@ -1,6 +1,6 @@
 # 自建时间戳服务器实现伪签名驱动证书
 ## Implementing Pseudo Signature with Self-Sign Timestamp Servers
-![自建时间戳服务器实现伪签名驱动证书](Pictures/2586728848.jpg)
+![自建时间戳服务器实现伪签名驱动证书](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/2586728848.jpg)
 
 ## 免责声明 / Disclaimers
 

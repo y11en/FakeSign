@@ -127,14 +127,25 @@ namespace FakeStamping
                 DateTime signTime;
                 signTime = DateTime.UtcNow;
                 if (supportFake == "true")
+                {
+                    Console.WriteLine("   [Success] Fake Stamp Responder: " + supportFake);
                     if (!DateTime.TryParseExact(date, "yyyy-MM-dd'T'HH:mm:ss",
                                                 CultureInfo.InvariantCulture,
                                                 DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal,
                                                 out signTime))
+                    {
                         signTime = DateTime.UtcNow;
+                        Console.WriteLine("   [Warning] Can Not Process Time: " + date);
+                    }
+                    else
+                    {
+                        Console.WriteLine("   [Success] Fake Stamp Responder: " + date);
+                    }
+                }
                 else
-                        signTime = DateTime.UtcNow;
-
+                {
+                    Console.WriteLine("   [Success] Real Stamp Responder!");
+                }
                 BinaryReader reader = new BinaryReader(request.InputStream);
                 byte[] bRequest = reader.ReadBytes((int)request.ContentLength64);
 
@@ -143,12 +154,12 @@ namespace FakeStamping
                 if (RFC)
                 {
                     response.ContentType = "application/timestamp-reply";
-                    log += "RFC3161     \t";
+                    log += "   [Success] RFC3161 Time Stamping ";
                 }
                 else
                 {
                     response.ContentType = "application/octet-stream";
-                    log += "Authenticode\t";
+                    log += "   [Success] Authenticode Stamping ";
                 }
                 log += signTime;
                 BinaryWriter writer = new BinaryWriter(response.OutputStream);
