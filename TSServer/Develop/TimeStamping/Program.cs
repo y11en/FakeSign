@@ -101,22 +101,49 @@ namespace FakeStamping
                 StreamWriter writer = new StreamWriter(response.OutputStream, Encoding.ASCII);
                 
                 writer.WriteLine("<h1>Pikachu RFC3161 Time Stamping Responder</h1>" +
-                                 "<h2>Server Details</h2>" +
-                                 "ServerURL: " + server_full +
-                                 "<br/>FakeTimer: " + supportFake +
-                                 "<h2>Signing Usage</h2>" +
-                                 "<h3>Microsoft SignTool</h3>" +
-                                 "<code>signtool.exe sign /v /f \"your_cert.pfx\" /p \"pfx password\" /t "+ server_full + usage_time + " \"unsign file\" </code>" +
-                                 "<h3>TrustAsia SignTool</h3>" +
+
+                                 "<h2>Server Detail</h2>" +
                                  "<blockquote><ul>" +
-                                 "<li><h5><span>Pikachu Fake CA TS: </span><a href='https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip'>" +
-                                 "<span>TrustAsia SignTool - PikaFakeTimers</span></a></h5></li>" +
-                                 "<li><h5><span>Pikachu Root CA TS: </span><a href='https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaRealTimers.zip'>" +
-                                 "<span>TrustAsia SignTool - PikaRealTimers</span></a></h5></li>" +
-                                 "<li><h5><span>JemmyLoveJenny: </span><a href='https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-JemmyLoveJenny.zip'>" +
-                                 "<span>TrustAsia SignTool - JemmyLoveJenny</span></a></h5></li>" +
-                                 "</ul></blockquote></li></ul>"
-                    );
+                                 "<li><span>ServerURL: " + server_full + "</span></li>" +
+                                 "<li><span>FakeTimer: " + supportFake + "</span></li>" +
+                                 "</ul></blockquote></li></ul>" +
+
+                                 "<h2>Trust CA Cert</h2>" +
+                                 "<blockquote><ul>" +
+                                 "<li><span>Win32: </span><a href='https://github.com/PIKACHUIM/CA/raw/main/fake/FakeCA.zip'>" +
+                                 "<span>CA_Installer.exe</span></a></li>" +
+                                 "<li><span>Linux: </span><a href='https://github.com/PIKACHUIM/CA/raw/main/fake/CA.zip'>" +
+                                 "<span>CA_Installer.zip</span></a></li>" +
+                                 "</ul></blockquote></li></ul>" +
+
+                                 "<h2>Signing Usage</h2>" +
+                                     "<blockquote><ul>" +
+                                         "<li><h3>Microsoft SignTool</h3>" +
+                                             "<blockquote><ul>" +
+                                                 "<li>Sign Code: <code>signtool.exe sign /v /f  \"Cert.pfx\" /t " + server_full + usage_time + " /p \"Password\" \"UnsignFile.exe\" </code></li>" +
+                                                 "<li>New Stamp: <code>signtool.exe signtool timestamp /t &nbsp;&nbsp;&nbsp;" + server_full + usage_time + " \"UnsignFile.exe\" </code></li>" +
+                                                 "<li>Add Stamp: <code>signtool.exe signtool timestamp /tp 1 " + server_full + usage_time + " \"UnsignFile.exe\" </code></li>" +
+                                             "</ul></blockquote>" +
+                                         "</li>" +
+                                         "<li><h3>TrustAsia SignTool</h3>" +
+                                             "<blockquote><ul>" +
+                                                 "<li><span>Pikachu Fake CA TS: </span><a href='https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip'>" +
+                                                    "<span>TrustAsia SignTool - PikaFakeTimers</span></a></li>" +
+                                                 "<li><span>Pikachu Root CA TS: </span><a href='https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaRealTimers.zip'>" +
+                                                    "<span>TrustAsia SignTool - PikaRealTimers</span></a></li>" +
+                                                 "<li><span>Jemmy&nbsp;&nbsp;Love&nbsp;&nbsp;Jenny: </span><a href='https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-JemmyLoveJenny.zip'>" +
+                                                    "<span>TrustAsia SignTool - JemmyLoveJenny</span></a></li>" +
+                                             "</ul></blockquote>"+
+                                         "</li>" +
+                                      "</ul></blockquote>" +
+                                 "<h2>Project Pages</h2>" +
+                                 "<blockquote><ul>" +
+                                 "<li><span>Github: </span><a href='https://github.com/PIKACHUIM/FakeSign'><span>Fake Signs - PIKACHUIM</span></a></li>" +
+                                 "<li><span>Usages: </span><a href='https://code.52pika.cn/index.php/archives/277/'><span>Fake Timestamp Servers</span></a></li>" +
+                                 "<li><span>CA Web: </span><a href='https://cert.pika.net.cn/fake/'><span>Pikachu Fake CA Online</span></a></li>" +
+                                 "</ul></blockquote></li></ul>" +
+                                 "<style>*{font-family:Consolas}</style>"
+                                 );
                 writer.Close();
                 ctx.Response.Close();
             }
