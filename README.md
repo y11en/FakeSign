@@ -119,15 +119,35 @@ This article involves network security experiments. Reading this article indicat
 
 ## 快速使用 / QuickUse
 
-### CA证书：用于时间戳认证 / CA Certificate:  Used for Timestamp Auth
+### 0.本地整合文件
+
+整合包包括本地时间戳服务器和本地代码签名工具
+
+如果选择本地整合包, 需要自己生成CA和TSA证书
+
+此方法不用再下载签名工具和使用在线时间戳服务
+
+您只需要泄露的证书和自建CA信任体系并安装CA
+
+**只适用于Windows**
+
+- 虚假时间签名工具整合包：[Signtool-Stamp-Fake.zip](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/Signtool-Stamp-Fake.zip)
+
+- 真实时间签名工具整合包：[Signtool-Stamp-Real.zip](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/Signtool-Stamp-Real.zip)
+
+### 1.证书机构信任
+
+用于时间戳认证 / CA Certificate:  Used for Timestamp Auth
 
 二选一，***需要和下面签名工具的时间戳证书一致***
 
-- #### Pikachu Fake CA （推荐）：[自动安装工具（推荐）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/pika-fake-root-cert.exe)
+- Pikachu Fake CA （推荐）：[自动安装工具（推荐）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/pika-fake-root-cert.exe)
 
-- #### JemmyLoveJenny（备用）：[注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
+- JemmyLoveJenny（备用）：[注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
 
-### 泄漏的过期签名代码证书 / Leaked Expired Signature Code Certificate
+### 2.签名代码证书
+
+泄漏的过期签名代码证书 / Leaked Expired Signature Code Certificate
 
 > ***需要2015-07-29及以前的EV代码签名证书***，**我不提供任何代码签名证书**
 >
@@ -135,61 +155,86 @@ This article involves network security experiments. Reading this article indicat
 >
 > **I do NOT provide any code signing certificates**
 
-### 亚洲诚信数字签名工具包 / TrustAsia Digital Signature Toolkit Modify
+### 3.代码签名工具
 
-> #### 下载工具 / Download Tools
->
-> 二选一，***需要和之前安装的CA证书一致***
->
-> - ##### Pikachu Fake CA （推荐）：[亚洲诚信签名工具 / TrustAsia SignTool - PikaFakeTimers](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip)
->
-> - ##### JemmyLoveJenny（备用）：[亚洲诚信签名工具 / TrustAsia SignTool - JemmyLoveJenny](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-JemmyLoveJenny.zip)
->
-> #### 使用方法 / Signature Usage
->
-> 1. ##### 安装过期EV代码签名证书
->
-> 2. ##### 编辑hook.ini，设置时间
->
->    **设置时间规则**：
->
->    - ###### 在证书有效期之内
->
->    - ###### 在证书被吊销之前
->
->      *(建议设置到**接近证书的生效日期**，因为很多证书都被吊销了)*
->
->    - ###### 建议2015-07-29前
->
->    ![设置时间](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406174339.jpg)
->
-> 3. ##### 打开工具DSignTool.exe
->
->    **会提示时间戳日期**：
->
->    ![20230406174916](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406174916.jpg)
->
-> 4. ##### 添加规则
->
->    ![20230406175056](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406175056.jpg)
->
-> 5. ##### 签名文件
->
->    ![20230406175256](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406175256.jpg)
+亚洲诚信数字签名工具包 / TrustAsia Digital Signature Toolkit Modify
 
-### 其他工具：微软SignTool / Other tools: Microsoft SignTool CMD Usage
-> #### 签名方法 / Signature Method
->
-> ```shell
-> signtool timestamp /t "http://<服务器地址>/{SHA1|SHA256}/YYYY-MM-DDTHH:mm:ss" <待签名程序>
-> ```
->
-> #### 签名示例 / Signature Example
->
-> ```shell
-> signtool timestamp /t "http://time.pika.net.cn/fake/RSA/SHA1/2011-01-01T00:00:00" test.exe
-> signtool timestamp /tp 1 /tr "http://time.pika.net.cn/fake/RSA/SHA256/2011-01-01T00:00:00" test.exe
-> ```
+#### 下载工具 / Download Tools
+
+二选一，***需要和之前安装的CA证书一致***
+
+ - ##### Pikachu Fake CA （推荐）：[亚洲诚信签名工具 / TrustAsia SignTool - PikaFakeTimers](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip)
+
+ - ##### JemmyLoveJenny（备用）：[亚洲诚信签名工具 / TrustAsia SignTool - JemmyLoveJenny](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-JemmyLoveJenny.zip)
+
+#### 使用方法 / Signature Usage
+
+ 1. ##### 安装过期EV代码签名证书
+
+ 2. ##### 编辑hook.ini，设置时间
+
+    **设置时间规则**：`hook.ini`
+
+    - ###### 在证书有效期之内
+
+    - ###### 在证书被吊销之前
+
+      *(建议设置到**接近证书的生效日期**，因为很多证书都被吊销了)*
+
+    - ###### 建议2015-07-29前
+
+      ```ini
+      [Timestamp]
+      Timestamp=2015-01-01T00:00:00
+      ```
+
+ 3. ##### 打开工具DSignTool.exe
+
+    **会提示时间戳日期**
+
+ 4. ##### 添加规则
+
+    ![20230406175056](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20230406175056.jpg)
+
+ 5. ##### 签名文件
+
+    ![20230406175256](https://github.com/PIKACHUIM/FakeSign/raw/main/Pictures/20231020165034.png)
+
+### 其他签名工具
+
+其他工具：微软SignTool / Other tools: Microsoft SignTool CMD Usage
+
+#### 时间戳方法 / Signature Method
+
+ ```shell
+ signtool timestamp /t "http://<服务器地址>/{SHA1|SHA256}/YYYY-MM-DDTHH:mm:ss" <待签名程序>
+ ```
+
+#### 签名示例 / Signature Example
+
+##### 单独加时间戳（默认添加第一个签名的时间戳）
+
+ ```shell
+ signtool timestamp /t "http://time.pika.net.cn/fake/RSA/SHA1/2011-01-01T00:00:00" test.exe
+ ```
+
+##### 单独加时间戳-指定签名序号
+
+```shell
+signtool timestamp /tp 1 /tr "http://time.pika.net.cn/fake/RSA/SHA256/2011-01-01T00:00:00" test.exe
+```
+
+##### SHA1签名+时间戳
+
+```
+signtool.exe sign /f Cert.pfx /p password /fd sha256 /tr http://time.pika.net.cn/fake/RSA/2011-01-01T00:00:00 /as /v T.exe
+```
+
+##### SHA256签名+时间戳
+
+```
+signtool.exe sign /f Cert.pfx /p password /fd sha256 /tr http://time.pika.net.cn/fake/RSA/2011-01-01T00:00:00 /td sha256 /as /v T.exe
+```
 
 ## 搭建服务 / TS Server
 
@@ -217,7 +262,11 @@ This article involves network security experiments. Reading this article indicat
 
 ### Windows部署服务（推荐）
 
-- 双击：`TimeStamping.exe`即可运行
+1. 创建一个CA和时间戳证书，参考[XCA自制CA证书并签发时间戳证书](https://code.52pika.cn/index.php/archives/330/)
+2. 放置证书文件到当前的运行目录内，需要参考下面的文件说明：
+   - **TSA.crt 证书Base64编码**
+   - **TSA.key 密钥Base64编码**
+3. 双击：`TimeStamping.exe`即可运行
 
 
 ### Ubuntu部署服务（不推荐）
@@ -254,6 +303,13 @@ sudo apt-get install wine mono-complete winetricks wine32 winbind
 
 - #### 运行服务
 
+  创建一个CA和时间戳证书，参考[XCA自制CA证书并签发时间戳证书](https://code.52pika.cn/index.php/archives/330/)
+  
+  放置证书文件到当前的运行目录内，需要参考下面的文件说明：
+  
+  - **TSA.crt 证书Base64编码**
+  - **TSA.key 密钥Base64编码**
+  
   ```shell
   wine TimeStamping.exe
   ```
