@@ -350,7 +350,10 @@ sudo apt-get install wine mono-complete winetricks wine32 winbind
 ## 参考资料 / Reference
 
 > [1] 时间戳签名库以及本地Demo服务器，可以倒填时间制造有效签名，JemmyloveJenny，吾爱破解，https://www.52pojie.cn/thread-908684-1-1.html
+>
 > [2] 亚洲诚信数字签名工具修改版 自定义时间戳 驱动签名，JemmyloveJenny，吾爱破解，https://www.52pojie.cn/thread-1027420-1-1.html
+>
 > [3] 关于Windows驱动签名认证的大致总结，[ANY_LNK](https://space.bilibili.com/1337311595)，BiliBili，https://www.bilibili.com/read/cv17812616
+>
 > [4] 数字证书伪造与利用（仅方便用于驱动开发人员的调试，不得非法使用），
-MIAIONE，BiliBili，https://www.bilibili.com/read/cv9802857/
+> MIAIONE，BiliBili，https://www.bilibili.com/read/cv9802857/
