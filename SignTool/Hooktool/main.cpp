@@ -29,12 +29,12 @@ LPCWSTR ReplaceTimeStamp(LPCWSTR lpOriginalTS) {
     LPWSTR buf = new WCHAR[65];
     memset(buf, 0, sizeof(WCHAR) * 65);
     if (!_wcsicmp(lpOriginalTS, L"{CustomTimestampMarker-SHA1}")) {
-        wcscat(buf, L"http://time.pika.net.cn/fake/RSA/");
+        wcscat(buf, L"http://localhost:1004/TSA/");
         wcscat(buf, lpTimestamp);
         return buf;
     }
     else if (!_wcsicmp(lpOriginalTS, L"{CustomTimestampMarker-SHA256}")) {
-        wcscat(buf, L"http://time.pika.net.cn/fake/RSA/");
+        wcscat(buf, L"http://localhost:1004/TSA/");
         wcscat(buf, lpTimestamp);
         return buf;
     }

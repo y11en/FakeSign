@@ -1,0 +1,2 @@
+HookSigntool-LocalHost-1003 本地服务器，适用于伪签的情况
+HookSigntool-LocalHost-1004 本地服务器，适用于正常的情况
