@@ -227,7 +227,7 @@ signtool timestamp /tp 1 /tr "http://time.pika.net.cn/fake/RSA/SHA256/2011-01-01
 ##### SHA1签名+时间戳
 
 ```
-signtool.exe sign /f Cert.pfx /p password /fd sha256 /tr http://time.pika.net.cn/fake/RSA/2011-01-01T00:00:00 /as /v T.exe
+signtool.exe sign /f Cert.pfx /p password /tr http://time.pika.net.cn/fake/RSA/2011-01-01T00:00:00 /as /v T.exe
 ```
 
 ##### SHA256签名+时间戳
