@@ -1,50 +1,28 @@
-MIT License
-
-Copyright (c) 2023 PIKACHUIM
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
 欢迎您研究并进行《自建时间戳服务器实现伪签名驱动证书》实验（以下简称“本实验”）。
 
 在使用本实验前**请您仔细阅读并同意以下免责许可条款**，继续则代表您同意条款全部内容。
 
 若您不同意本许可条款的任何内容，请立即停止进行本实验，并删除所有内容及其衍数据。
 
-1. ###### 术语解释
+1. 术语解释
 
    1. “实验内容”：包括本网站实验所提供的技术（包括但不限于代码、文件、步骤）及其衍生内容。
    2. “违反法律法规”：指违反本协议所提及的和您所在国家或地区的相关法律法规，及其相关规定。
    3. “作者”：本实验技术的提供者，包括本文档创建人，网站提供者，以及其他提供帮助的主体等。
    4. “使用者”：使用本实验提供的技术（包括但不限于：代码、文件、步骤）及其衍生内容的主体。
 
-2. ###### 实验目的
+2. 实验目的
 
    1. 本实验旨在提供网络安全技术的实践学习和技术研究。
 
    2. 本实验仅供个人或团体进行非商业性质的技术探索。
 
-3. ###### 使用限制
+3. 使用限制
 
    1. 您承诺本实验的原理仅用于实验和安全技术测试和技术实验，不用于需保密或者重要生产环境。
    2. 您不得用于任何违反法律法规的活动，包括但不限于犯罪行为、欺诈、破坏计算机信息系统等。
 
-4. ###### 法律合规
+4. 法律合规
 
    1. 您遵守《中华人民共和国网络安全法》，不得使用本网站任何技术进行违法犯罪活动。
 
@@ -54,7 +32,7 @@ SOFTWARE.
 
    4. 您遵守中国以及其他所在国家和地区的法律法规，不得使用本网站的任何技术违反法律法规，或者给其他任何个人、团体造成问题或者损失。
 
-5. ###### 免责声明
+5. 免责声明
 
    1. 本实验仅提供技术实验和安全技术测试之用，不对使用者的行为负责
 
@@ -66,7 +44,7 @@ SOFTWARE.
 
    5. 本网站保留在任何时候中断或终止本服务的权利，而无需提前通知使用者。
 
-6. ###### 违规情形
+6. 违规情形
 
    **您如果违反上述条款的任何内容，您将完全独立承担带来的任何法律以及其他责任和后果。**
 
