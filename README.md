@@ -249,6 +249,12 @@ This article involves network security experiments. Reading this article indicat
 
 ### 其他签名工具
 
+生成CAT文件方式签名：（**需要Windows 10 及以上的SDK**）
+
+```shell
+inf2cat /v /os:XP_X86,Vista_X86,Vista_X64,7_X86,7_X64,8_X86,8_X64,6_3_X86,6_3_X64,10_X86,10_X64 /driver:.
+```
+
 其他工具：微软SignTool / Other tools: Microsoft SignTool CMD Usage
 
 #### 时间戳方法 / Signature Method
