@@ -1,106 +1,50 @@
-欢迎您研究并进行《自建时间戳服务器实现伪签名驱动证书》实验（以下简称“本实验”）。
+Welcome to research and conduct the experiment on "Implementing Pseudo Signature with Self-Sign Timestamp Servers" 
 
-在使用本实验前**请您仔细阅读并同意以下免责许可条款**，继续则代表您同意条款全部内容。
+Before using this experiment, *<u>Please carefully read and agree to the following disclaimer license terms</u>.
 
-若您不同意本许可条款的任何内容，请立即停止进行本实验，并删除所有内容及其衍数据。
+Continuing means that you agree to all the terms**. *If you do not agree with any content of this license term,
 
-1. 术语解释
+Please immediately stop conducting this experiment and delete all content and its derivative data</u>.
 
-   1. “实验内容”：包括本网站实验所提供的技术（包括但不限于代码、文件、步骤）及其衍生内容。
-   2. “违反法律法规”：指违反本协议所提及的和您所在国家或地区的相关法律法规，及其相关规定。
-   3. “作者”：本实验技术的提供者，包括本文档创建人，网站提供者，以及其他提供帮助的主体等。
-   4. “使用者”：使用本实验提供的技术（包括但不限于：代码、文件、步骤）及其衍生内容的主体。
-
-2. 实验目的
-
-   1. 本实验旨在提供网络安全技术的实践学习和技术研究。
-
-   2. 本实验仅供个人或团体进行非商业性质的技术探索。
-
-3. 使用限制
-
-   1. 您承诺本实验的原理仅用于实验和安全技术测试和技术实验，不用于需保密或者重要生产环境。
-   2. 您不得用于任何违反法律法规的活动，包括但不限于犯罪行为、欺诈、破坏计算机信息系统等。
-
-4. 法律合规
-
-   1. 您遵守《中华人民共和国网络安全法》，不得使用本网站任何技术进行违法犯罪活动。
-
-   2. 您遵守《中华人民共和国刑法》第286条第1款规定，不得使用本网站的任何技术破坏计算机信息系统。
-
-   3. 您遵守《中华人民共和国电子签名法》第32条，不得使用本网站的任何技术伪造、冒用、盗用他人的电子签名
-
-   4. 您遵守中国以及其他所在国家和地区的法律法规，不得使用本网站的任何技术违反法律法规，或者给其他任何个人、团体造成问题或者损失。
-
-5. 免责声明
-
-   1. 本实验仅提供技术实验和安全技术测试之用，不对使用者的行为负责
-
-   2. 本实验的原理发布在Github上，任何人均可自由获取和使用，作者不对实验的使用者行为负责。
-
-   3. 本实验的原理可能存在技术问题、安全问题或其他问题，使用者需自行承担使用风险，并采取必要的安全措施保护自身和他人的利益。
-
-   4. 作者对于使用本实验的原理所产生的任何直接或间接损失，包括但不限于利润损失、数据损失、业务中断等，不承担责任。
-
-   5. 本网站保留在任何时候中断或终止本服务的权利，而无需提前通知使用者。
-
-6. 违规情形
-
-   **您如果违反上述条款的任何内容，您将完全独立承担带来的任何法律以及其他责任和后果。**
-
-请您在使用本服务前认真阅读并理解上述免责许可条款。若您同意并接受上述条款，请继续使用本实验。
-
-如有任何疑问或需要进一步解释，请联系我们。
-
-**Welcome to research and conduct the experiment on "Implementing Pseudo Signature with Self-Sign Timestamp Servers"** 
-
-Before using this experiment, *<u>Please carefully read and agree to the following disclaimer license terms</u>.* 
-
-**Continuing means that you agree to all the terms**. *If you do not agree with any content of this license term,* 
-
-*<u>Please immediately stop conducting this experiment and delete all content and its derivative data</u>.*
-
-1. ###### Explanation of Terms
+1. Explanation of Terms
 
    1. "Experimental Content": This includes the technology (including but not limited to code, files, steps) and its derivative content provided by this website experiment.
    2. "Violation of laws and regulations": refers to a violation of the relevant laws and regulations mentioned in this agreement and in your country or region, as well as their relevant provisions.
    3. "Author": The provider of this experimental technology, including the creator of this document, website provider, and other assistance providers.
    4. "User": The subject who uses the technology provided in this experiment (including but not limited to: code, files, steps) and its derivative content.
 
-2. ###### Experimental Purpose
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document (in uppercase, as shown) are to be interpreted as described in RFC2119.
 
-   1. This experiment aims to provide practical learning and technical research on network security technology.
+2. Experimental Purpose
 
-   2. This experiment is only for individuals or groups to conduct non commercial technological exploration.
+   1. This experiment is SHALL ONLY to provide practical learning and technical research on network security technology.
 
-2. ###### Usage Restrictions
+   2. This experiment is RECOMMENDED only for individuals or groups to conduct non commercial technological exploration.
 
-   1. You promise that the principles of this experiment will only be used for experiments and safety technology testing and technical experiments, and will not be used in confidential or important production environments.
-   2. You are not allowed to use it for any activities that violate laws and regulations, including but not limited to criminal behavior, fraud, damage to computer information systems, etc.
+3. Usage Restrictions
 
-3. ###### Legal Compliance
+   1. You MUST promise that the principles of this experiment will only be used for experiments and safety technology testing and technical experiments, and will not be used in confidential or important production environments.
+   2. You are MUST NOT allowed to use it for any activities that violate laws and regulations, including but not limited to criminal behavior, fraud, damage to computer information systems, etc.
 
-   1. You comply with the Cybersecurity Law of the People's Republic of China and are not allowed to use any technology on this website for illegal or criminal activities.
-   2. You shall comply with Article 286 (1) of the Criminal Law of the People's Republic of China and shall not use any technology on this website to damage the computer information system.
-   3. You shall comply with Article 32 of the Electronic Signature Law of the People's Republic of China and shall not use any technology of this website to forge, impersonate, or embezzle the electronic signature of others
-   4. You shall comply with the laws and regulations of China and other countries and regions where you are located, and shall not use any technology on this website to violate laws and regulations, or cause problems or losses to any other individual or group.
+4. Legal Compliance
 
-4. ###### Disclaimer
+   1. You MUST comply with the Cybersecurity Law of the People's Republic of China and are not allowed to use any technology on this website for illegal or criminal activities.
+   2. You MUST comply with Article 286 (1) of the Criminal Law of the People's Republic of China and shall not use any technology on this website to damage the computer information system.
+   3. You MUST comply with Article 32 of the Electronic Signature Law of the People's Republic of China and shall not use any technology of this website to forge, impersonate, or embezzle the electronic signature of others
+   4. You MUST comply with the laws and regulations of China and other countries and regions where you are located, and shall not use any technology on this website to violate laws and regulations, or cause problems or losses to any other individual or group.
 
-   1. This experiment is only for technical and safety technical testing purposes and is not responsible for the user's behavior
+5. Disclaimer
+
+   1. This experiment is ONLY for technical and safety technical testing purposes and is not responsible for the user's behavior
    2. The principles of this experiment are published on Github and can be freely accessed and used by anyone. The author is not responsible for the user behavior of the experiment.
-   3. The principle of this experiment may have technical, safety, or other issues, and users are required to bear the risk of use and take necessary safety measures to protect their own and others' interests.
-   4. The author shall not be liable for any direct or indirect losses arising from the use of the principles of this experiment, including but not limited to profit losses, data losses, business interruptions, etc.
+   3. The principle of this experiment mayhave technical, safety, or other issues, and users are required to bear the risk of use and take necessary safety measures to protect their own and others' interests.
+   4. The author SHALL NOT be liable for any direct or indirect losses arising from the use of the principles of this experiment, including but not limited to profit losses, data losses, business interruptions, etc.
    5. This website reserves the right to interrupt or terminate this service at any time without prior notice to users.
 
-5. ###### Violations
+6. Violations
 
-   **If you violate any of the above terms, you will fully and independently bear any legal and other responsibilities and consequences that may arise**
+   If you violate any of the above terms, you will fully and independently bear any legal and other responsibilities and consequences that may arise
 
-   
-
-   Please carefully read and understand the above disclaimer terms before using this service.
-
-   If you agree and accept the above terms, please continue to use this experiment.
-
-   If you have any questions or need further explanation, please contact us.
+Please carefully read and understand the above disclaimer terms before using this service.
+If you agree and accept the above terms, please continue to use this experiment.
+If you have any questions or need further explanation, please contact us.
