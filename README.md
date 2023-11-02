@@ -215,9 +215,9 @@
 
   - #### 在运行驱动的设备信任时间戳CA证书
 
-    - #### [自动安装工具（推荐）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/pika-fake-root-cert.exe)
+    - #### [PikaFakeTimers 自动安装工具（推荐）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/pika-fake-root-cert.exe)
 
-    - #### [注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
+    - #### [JemmyLoveJenny 注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
 
 ## 快速使用 / QuickUse
 
@@ -243,9 +243,9 @@
 
 二选一，***需要和下面签名工具的时间戳证书一致***
 
-- Pikachu Fake CA （推荐）：[自动安装工具（推荐）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/pika-fake-root-cert.exe)
+- Pikachu Fake CA （推荐）：[PikaFakeTimers 自动安装工具（推荐）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/pika-fake-root-cert.exe)
 
-- JemmyLoveJenny（备用）：[注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
+- JemmyLoveJenny（备用）：[JemmyLoveJenny 注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
 
 ### 2.签名代码证书
 
