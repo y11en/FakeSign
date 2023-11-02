@@ -4,8 +4,7 @@
 
 ## 免责声明 / Disclaimers
 
-<summary>[Disclaimers - English]</summary>
-
+<summary>Disclaimers - English</summary>
 <details>
 <body><p><strong>Welcome to research and conduct the experiment on &quot;Implementing Pseudo Signature with Self-Sign Timestamp Servers&quot;</strong> </p>
 <p>Before using this experiment, <em><u>Please carefully read and agree to the following disclaimer license terms</u>.</em> </p>
