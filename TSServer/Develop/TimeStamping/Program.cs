@@ -110,9 +110,9 @@ namespace FakeStamping
 
                                  "<h2>Trust CA Cert</h2>" +
                                  "<blockquote><ul>" +
-                                 "<li><span>Win32: </span><a href='https://github.com/PIKACHUIM/CA/raw/main/fake/FakeCA.zip'>" +
+                                 "<li><span>Win32: </span><a href='https://github.com/PIKACHUIM/CA/raw/main/fake/FakeCACert.zip'>" +
                                  "<span>CA_Installer.exe</span></a></li>" +
-                                 "<li><span>Linux: </span><a href='https://github.com/PIKACHUIM/CA/raw/main/fake/CA.zip'>" +
+                                 "<li><span>Linux: </span><a href='https://github.com/PIKACHUIM/CA/raw/main/fake/CA-ALLCERT.zip'>" +
                                  "<span>CA_Installer.zip</span></a></li>" +
                                  "</ul></blockquote></li></ul>" +
 
@@ -149,51 +149,60 @@ namespace FakeStamping
             }
             else
             {
-                string log = "";
-                string date = request.RawUrl.Remove(0, listen_path.Length);
-                DateTime signTime;
-                signTime = DateTime.UtcNow;
-                if (supportFake == "true")
-                {
-                    Console.WriteLine("   [Success] Fake Stamp Responder: " + supportFake);
-                    if (!DateTime.TryParseExact(date, "yyyy-MM-dd'T'HH:mm:ss",
-                                                CultureInfo.InvariantCulture,
-                                                DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal,
-                                                out signTime))
+                try {
+                    string log = "";
+                    string date = request.RawUrl.Remove(0, listen_path.Length);
+                    DateTime signTime;
+                    signTime = DateTime.UtcNow;
+                    if (supportFake == "true")
                     {
-                        signTime = DateTime.UtcNow;
-                        Console.WriteLine("   [Warning] Can Not Process Time: " + date);
+                        Console.WriteLine("   [Success] Fake Stamp Responder: " + supportFake);
+                        if (!DateTime.TryParseExact(date, "yyyy-MM-dd'T'HH:mm:ss",
+                                                    CultureInfo.InvariantCulture,
+                                                    DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal,
+                                                    out signTime))
+                        {
+                            signTime = DateTime.UtcNow;
+                            Console.WriteLine("   [Warning] Can Not Process Time: " + date);
+                        }
+                        else
+                        {
+                            Console.WriteLine("   [Success] Fake Stamp Responder: " + date);
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("   [Success] Fake Stamp Responder: " + date);
+                        Console.WriteLine("   [Success] Real Stamp Responder!");
                     }
-                }
-                else
-                {
-                    Console.WriteLine("   [Success] Real Stamp Responder!");
-                }
-                BinaryReader reader = new BinaryReader(request.InputStream);
-                byte[] bRequest = reader.ReadBytes((int)request.ContentLength64);
+                    BinaryReader reader = new BinaryReader(request.InputStream);
+                    byte[] bRequest = reader.ReadBytes((int)request.ContentLength64);
 
-                bool RFC;
-                byte[] bResponse = tsResponder.GenResponse(bRequest, signTime, out RFC);
-                if (RFC)
+                    bool RFC;
+                    byte[] bResponse = tsResponder.GenResponse(bRequest, signTime, out RFC);
+                    if (RFC)
+                    {
+                        response.ContentType = "application/timestamp-reply";
+                        log += "   [Success] RFC3161 Time Stamping ";
+                    }
+                    else
+                    {
+                        response.ContentType = "application/octet-stream";
+                        log += "   [Success] Authenticode Stamping ";
+                    }
+                    log += signTime;
+                    BinaryWriter writer = new BinaryWriter(response.OutputStream);
+                    writer.Write(bResponse);
+                    writer.Close();
+                    ctx.Response.Close();
+                    Console.WriteLine(log);
+                }catch(Exception e)
                 {
-                    response.ContentType = "application/timestamp-reply";
-                    log += "   [Success] RFC3161 Time Stamping ";
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(DateTime.Now.ToString("yyyy-M-d HH:mm:ss") + " ERROR " + e.Message);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    ctx.Response.Close();
                 }
-                else
-                {
-                    response.ContentType = "application/octet-stream";
-                    log += "   [Success] Authenticode Stamping ";
-                }
-                log += signTime;
-                BinaryWriter writer = new BinaryWriter(response.OutputStream);
-                writer.Write(bResponse);
-                writer.Close();
-                ctx.Response.Close();
-                Console.WriteLine(log);
+                
             }
         }
     }
