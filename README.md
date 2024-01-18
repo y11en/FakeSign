@@ -128,6 +128,16 @@
 >
 > 如有任何疑问或需要进一步解释，请联系我们。
 
+## 简易使用 / Quick Usage
+
+1. 下载证书信任工具：[Fake CA信任工具](blob:https://github.com/99a3024d-4498-477e-a407-c897be4de4dc)
+2. 安装泄露代码证书（我不提供任何证书）
+3. 下载代码签名工具：[Signtool-Stamp-Fake.zip](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/Signtool-Stamp-Fake.zip)
+
+无意中看到一些网址，但是不知道是干嘛的：
+
+[FuckCertVerifyTime](https://github.com/wanttobeno/FuckCertVerifyTime/tree/master/代码签名数字证书)
+
 ## 实现原理 / Principle
 
 - ### 微软内核模式驱动代码签名要求：
@@ -223,7 +233,7 @@
 
     - #### [JemmyLoveJenny 注册安装工具（手动）](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/JemmyLoveJenny-cert.reg)
 
-## 快速使用 / QuickUse
+## 详细教程 / Usage Detail
 
 ### 0.本地整合文件
 
