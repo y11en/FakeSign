@@ -132,11 +132,9 @@
 
 1. 下载证书信任工具：[Fake CA信任工具](blob:https://github.com/99a3024d-4498-477e-a407-c897be4de4dc)
 2. 安装泄露代码证书（我不提供任何证书）
-3. 下载代码签名工具：[Signtool-Stamp-Fake.zip](https://github.com/PIKACHUIM/FakeSign/raw/main/Download/Signtool-Stamp-Fake.zip)
+3. 下载代码签名工具：[亚洲诚信签名工具](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip)
 
-无意中看到一些网址，但是不知道是干嘛的：
-
-[FuckCertVerifyTime](https://github.com/wanttobeno/FuckCertVerifyTime/tree/master/代码签名数字证书)
+无意中看到一些网址，但是不知道是干嘛的：[FuckCertVerifyTime](https://github.com/wanttobeno/FuckCertVerifyTime/tree/master/代码签名数字证书)
 
 ## 实现原理 / Principle
 
