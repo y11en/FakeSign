@@ -130,7 +130,7 @@
 
 ## 简易使用 / Quick Usage
 
-1. 下载证书信任工具：[Fake CA信任工具](blob:https://github.com/99a3024d-4498-477e-a407-c897be4de4dc)
+1. 下载证书信任工具：[Fake CA信任工具](https://github.com/PIKACHUIM/CA/raw/main/fake/FakeCACert.zip)
 2. 安装泄露代码证书（我不提供任何证书）
 3. 下载代码签名工具：[亚洲诚信签名工具](https://github.com/PIKACHUIM/FakeSign/raw/main/SignTool/Released/HookSigntool-PikaFakeTimers.zip)
 
